@@ -7,5 +7,8 @@ router .register('products', ProductViewSet)
 router.register('orders', OrderView)
 
 urlpatterns = [
-    path('',include(router.urls))
+    path('',include(router.urls)) 
 ]
+
+
+# нужно деплоид
