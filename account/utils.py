@@ -6,7 +6,7 @@ def send_activation_code(email, activation_code):
     context = {
         'text_detail': 'Спасибо за регистрацию',
         'email': email,
-        'domain': 'http://34.125.224.175',
+        'domain': 'http://34.125.227.27',
         'activation_code': activation_code
 
     }
