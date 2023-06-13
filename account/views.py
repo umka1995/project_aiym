@@ -16,14 +16,24 @@ class RegisterView(APIView):
             serializer.save()
             return Response('Successfully registered',201)
         
-
 class ActivationView(APIView):
-    @swagger_auto_schema(request_body=ActivationSerializer())
-    def post(self, request):
-        serializer = ActivationSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.activate()
-        return Response('Аккаунт успешно активирован',status=200)
+    def get(self, request, email, activation_code):
+        user = User.objects.filter(email=email, activation_code=activation_code).first()
+        if not user:
+            return Response('user does not exist', 400)
+        user.activation_code = ''
+        user.is_active = True
+        user.save()
+        return Response('activated', 200)
+        
+
+# class ActivationView(APIView):
+#     @swagger_auto_schema(request_body=ActivationSerializer())
+#     def post(self, request):
+#         serializer = ActivationSerializer(data=request.data)
+#         serializer.is_valid(raise_exception=True)
+#         serializer.activate()
+#         return Response('Аккаунт успешно активирован',status=200)
     
     
 class ChangePasswordView(APIView):
