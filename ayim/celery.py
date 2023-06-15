@@ -11,3 +11,22 @@ app.autodiscover_tasks()
 # для запуска Celery
 #python3 -m celery -A <project_name> worker -l info 
 #                    <shop_api>
+
+#LOGGING = {
+   # 'version': 1,
+   # 'disable_existing_loggers': False,
+   # 'handlers': {
+        #'file': {
+       #     'level': 'DEBUG',
+      #      'class': 'logging.FileHandler',
+     #       'filename': 'debug.log',
+    #    },
+   # },
+   # 'loggers': {
+      #  'django': {
+     #       'handlers': ['file'],
+    #        'level': 'DEBUG',
+   #         'propagate': True,
+  #      },
+ #   },
+#}
